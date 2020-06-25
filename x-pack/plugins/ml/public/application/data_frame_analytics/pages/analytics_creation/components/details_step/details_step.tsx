@@ -22,10 +22,14 @@ export const DetailsStep: FC<CreateAnalyticsStepProps> = ({
   return (
     <EuiForm className="mlDataFrameAnalyticsCreateForm">
       {step === ANALYTICS_STEPS.DETAILS && (
-        <DetailsStepForm actions={actions} state={state} setCurrentStep={setCurrentStep} />
+        <div data-test-subj="mlAnalyticsCreateJobWizardDetailsStep active">
+          <DetailsStepForm actions={actions} state={state} setCurrentStep={setCurrentStep} />
+        </div>
       )}
       {step !== ANALYTICS_STEPS.DETAILS && stepActivated === true && (
-        <DetailsStepDetails setCurrentStep={setCurrentStep} state={state} />
+        <div data-test-subj="mlAnalyticsCreateJobWizardDetailsStep summary">
+          <DetailsStepDetails setCurrentStep={setCurrentStep} state={state} />
+        </div>
       )}
     </EuiForm>
   );

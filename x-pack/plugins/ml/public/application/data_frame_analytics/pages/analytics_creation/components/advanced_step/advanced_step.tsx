@@ -22,10 +22,14 @@ export const AdvancedStep: FC<CreateAnalyticsStepProps> = ({
   return (
     <EuiForm>
       {step === ANALYTICS_STEPS.ADVANCED && (
-        <AdvancedStepForm actions={actions} state={state} setCurrentStep={setCurrentStep} />
+        <div data-test-subj="mlAnalyticsCreateJobWizardAdvancedStep active">
+          <AdvancedStepForm actions={actions} state={state} setCurrentStep={setCurrentStep} />
+        </div>
       )}
       {step !== ANALYTICS_STEPS.ADVANCED && stepActivated === true && (
-        <AdvancedStepDetails setCurrentStep={setCurrentStep} state={state} />
+        <div data-test-subj="mlAnalyticsCreateJobWizardAdvancedStep summary">
+          <AdvancedStepDetails setCurrentStep={setCurrentStep} state={state} />
+        </div>
       )}
     </EuiForm>
   );

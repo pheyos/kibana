@@ -45,7 +45,7 @@ export const CreateStep: FC<Props> = ({ actions, state, step }) => {
   };
 
   return (
-    <Fragment>
+    <div data-test-subj="mlAnalyticsCreateJobWizardCreateStep active">
       {!isJobCreated && !isJobStarted && (
         <EuiFlexGroup gutterSize="s">
           <EuiFlexItem grow={false}>
@@ -88,6 +88,6 @@ export const CreateStep: FC<Props> = ({ actions, state, step }) => {
       <Messages messages={requestMessages} />
       {isJobCreated === true && showProgress && <ProgressStats jobId={jobId} />}
       {isJobCreated === true && <BackToListPanel />}
-    </Fragment>
+    </div>
   );
 };
